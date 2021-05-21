@@ -23,7 +23,7 @@
 
 `Fashion-MNIST` is a dataset of [Zalando](https://jobs.zalando.com/tech/)'s article images—consisting of a training set of 60,000 examples and a test set of 10,000 examples. Each example is a 28x28 grayscale image, associated with a label from 10 classes. We intend `Fashion-MNIST` to serve as a direct **drop-in replacement** for the original [MNIST dataset](http://yann.lecun.com/exdb/mnist/) for benchmarking machine learning algorithms. It shares the same image size and structure of training and testing splits.
 
-Here's an example how the data looks (*each class takes three-rows*):
+Here's an example of how the data looks (*each class takes three-rows*):
 
 ![](doc/img/fashion-mnist-sprite.png)
 
@@ -102,15 +102,15 @@ Note, Tensorflow supports passing in a source url to the `read_data_sets`. You m
 data = input_data.read_data_sets('data/fashion', source_url='http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/')
 ```
 
-Also, an official Tensorflow tutorial of using `tf.keras`, a high-level API to train Fashion-MNIST [can be found here](https://www.tensorflow.org/tutorials/keras/basic_classification).
+Also, an official Tensorflow tutorial of using `tf.keras`, a high-level API to train Fashion-MNIST [can be found here](https://www.tensorflow.org/tutorials/keras/classification).
 
 ### Loading data with other machine learning libraries 
 To date, the following libraries have included `Fashion-MNIST` as a built-in dataset. Therefore, you don't need to download `Fashion-MNIST` by yourself. Just follow their API and you are ready to go.
 
 - [Apache MXNet Gluon](https://mxnet.apache.org/api/python/docs/api/gluon/data/vision/datasets/index.html#mxnet.gluon.data.vision.datasets.FashionMNIST)
-- [deeplearn.js](https://deeplearnjs.org/demos/model-builder/)
+- [TensorFlow.js](https://github.com/tensorflow/tfjs-examples/blob/master/fashion-mnist-vae/data.js)
 - [Kaggle](https://www.kaggle.com/zalando-research/fashionmnist)
-- [Pytorch](https://pytorch.org/docs/stable/torchvision/datasets.html#fashion-mnist)
+- [Pytorch](https://pytorch.org/vision/stable/datasets.html#fashion-mnist)
 - [Keras](https://keras.io/api/datasets/fashion_mnist/)
 - [Edward](http://edwardlib.org/api/observations/fashion_mnist)
 - [Tensorflow](https://www.tensorflow.org/api_docs/python/tf/keras/datasets/fashion_mnist)
@@ -118,7 +118,8 @@ To date, the following libraries have included `Fashion-MNIST` as a built-in dat
 - [Torch](https://github.com/mingloo/fashion-mnist)
 - [JuliaML](https://juliaml.github.io/MLDatasets.jl/latest/datasets/FashionMNIST/)
 - [Chainer](https://docs.chainer.org/en/stable/reference/generated/chainer.datasets.get_fashion_mnist.html)
-
+- [HuggingFace Datasets](https://huggingface.co/datasets/fashion_mnist)
+ 
 You are welcome to make pull requests to other open-source machine learning packages, improving their support to `Fashion-MNIST` dataset.
 
 ### Loading data with other languages
@@ -128,7 +129,7 @@ As one of the Machine Learning community's most popular datasets, MNIST has insp
 - [C](https://stackoverflow.com/a/10409376)
 - [C++](https://github.com/wichtounet/mnist)
 - [Java](https://stackoverflow.com/a/8301949)
-- [Python](https://pypi.python.org/pypi/python-mnist) and [this](https://pypi.python.org/pypi/mnist) and [this]((https://www.brine.io/fashion-mnist/train))
+- [Python](https://pypi.python.org/pypi/python-mnist) and [this](https://pypi.python.org/pypi/mnist)
 - [Scala](http://mxnet.io/tutorials/scala/mnist.html)
 - [Go](https://github.com/schuyler/neural-go/blob/master/mnist/mnist.go)
 - [C#](https://jamesmccaffrey.wordpress.com/2013/11/23/reading-the-mnist-data-set-with-c/)
@@ -166,7 +167,7 @@ The table below collects the submitted benchmarks. Note that **we haven't yet te
 |3 Conv+2 FC | None | 0.907 | - | [@Cenk Bircanoğlu](https://github.com/cenkbircanoglu) | [:link:](https://github.com/cenkbircanoglu/openface/tree/master/fashion_mnist)|
 |3 Conv+pooling+BN | None | 0.903 | 0.994 | [@meghanabhange](https://github.com/meghanabhange) | [:link:](https://github.com/meghanabhange/FashionMNIST-3-Layer-CNN) |
 |3 Conv+pooling+2 FC+dropout | None | 0.926 | - | [@Umberto Griffo](https://github.com/umbertogriffo) | [:link:](https://github.com/umbertogriffo/Fashion-mnist-cnn-keras)|
-|3 Conv+BN+pooling|None|0.921|0.992|[@GunjanChhablani](https://github.com/GunjanChhablani)|[:link:](https://github.com/GunjanChhablani/CNN-with-FashionMNIST)| 
+|3 Conv+BN+pooling|None|0.921|0.992|[@gchhablani](https://github.com/gchhablani)|[:link:](https://github.com/gchhablani/CNN-with-FashionMNIST)| 
 |5 Conv+BN+pooling|None|0.931|-|[@Noumanmufc1](https://github.com/Noumanmufc1)|[:link:](https://gist.github.com/Noumanmufc1/60f00e434f0ce42b6f4826029737490a)| 
 |CNN with optional shortcuts, dense-like connectivity| standardization+augmentation+random erasing | 0.947 |-| [@kennivich](https://github.com/Dezhic) | [:link:](https://github.com/Dezhic/fashion-classifier)|
 |GRU+SVM | None| 0.888 | 0.965 | [@AFAgarap](https://github.com/AFAgarap) | [:link:](https://gist.githubusercontent.com/AFAgarap/92c1c4a5dd771999b0201ec0e7edfee0/raw/828fbda0e466dacb1fad66549e0e3022e1c7263a/gru_svm_zalando.py)|
@@ -190,6 +191,7 @@ The table below collects the submitted benchmarks. Note that **we haven't yet te
 |DENSER| - | 0.953| 0.997| [@fillassuncao](https://github.com/fillassuncao)| [:link:](https://github.com/fillassuncao/denser-models) [:link:](https://arxiv.org/pdf/1801.01563.pdf)|
 |Dyra-Net| Rescale to unit interval | 0.906| -| [@Dirk Schäfer](https://github.com/disc5)| [:link:](https://github.com/disc5/dyra-net) [:link:](https://dl.acm.org/citation.cfm?id=3204176.3204200)|
 |Google AutoML|24 compute hours (higher quality)| 0.939|-| [@Sebastian Heinz](https://github.com/sebastianheinz) |[:link:](https://www.statworx.com/de/blog/a-performance-benchmark-of-google-automl-vision-using-fashion-mnist/)|
+|Fastai| Resnet50+Fine-tuning+Softmax on last layer's activations| 0.9312| - | [@Sayak](https://github.com/sayakpaul) | [:link:](https://github.com/sayakpaul/Experiments-on-Fashion-MNIST/)|
 
 
 ### Other Explorations of Fashion-MNIST
@@ -237,6 +239,9 @@ Apache MXNet으로 배워보는 딥러닝(Deep Learning) - 김무현 (AWS 솔루
 
 ### [UMAP](https://github.com/lmcinnes/umap) on Fashion-MNIST (left) and original MNIST (right) 
 <img src="doc/img/umap_example_fashion_mnist1.png" width="50%"><img src="doc/img/umap_example_mnist1.png" width="50%">
+
+### [PyMDE](https://github.com/cvxgrp/pymde) on Fashion-MNIST (left) and original MNIST (right) 
+<img src="doc/img/pymde_example_fashion_mnist.png" width="50%"><img src="doc/img/pymde_example_mnist.png" width="50%">
 
 
 ## Contributing
